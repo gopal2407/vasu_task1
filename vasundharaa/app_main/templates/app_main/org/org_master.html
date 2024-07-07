@@ -1,0 +1,41 @@
+{% extends 'app_main/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block main %}
+<div class="row mt-5">
+    <div class="col-sm-12">
+        <h2>
+            <u>Organisations Master</u>
+            <a href="{% url 'org-create' %}" class="btn btn-success mb-4" style="float: right;">NEW</a>
+        </h2>
+    </div>
+    <div class="col-sm-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Organisation</th>
+              <th scope="col">Email</th>
+              <th scope="col">Is Global</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for org in organisations %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{org.name}}</td>
+                    <td>{{org.email}}</td>
+                    <td>{{org.is_global}}</td>
+                    <td>
+                        <a href="#">Update</a>
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</div>
+{% endblock main %}

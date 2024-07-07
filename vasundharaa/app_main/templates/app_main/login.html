@@ -1,0 +1,21 @@
+{% extends 'app_main/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block main %}
+<div class="row mt-5">
+    <div class="col-sm-4 col-md-3">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </div>
+        </form>
+        <a href="{% url 'user-registration' %}" style="margin-top:10px;display:block;">Register now!</a>
+        {% if error %}
+        <i style="color:red; margin-top:20px;display:block;">{{ error }}</i>
+        {% endif %}
+    </div>
+</div>
+{% endblock main %}

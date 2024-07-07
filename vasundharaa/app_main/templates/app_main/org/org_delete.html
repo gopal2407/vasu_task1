@@ -1,0 +1,15 @@
+{% extends 'app_main/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block main %}
+    <div class="row mt-5">
+        <div class="col-sm-4 col-md-3">
+            <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+                <input type="submit" value="Confirm" class="btn btn-danger">
+                <a href="#" class="btn btn-default">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock main %}

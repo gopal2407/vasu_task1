@@ -1,0 +1,47 @@
+{% extends 'app_main/user/org_admin_home.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block main %}
+<div class="row mt-5">
+    <div class="col-sm-12">
+        <h2>
+            <u>Users Master</u>
+            <a href="{% url 'user-create' %}" class="btn btn-success mb-4" style="float: right;">NEW</a>
+        </h2>
+    </div>
+    <div class="col-sm-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Contact No</th>
+              <th scope="col">Organisation</th>
+              <th scope="col">Is Org Admin</th>
+              <th scope="col">Is Active</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.contact_no}}</td>
+                    <td>{{user.organization}}</td>
+                    <td>{{user.is_org_admin}}</td>
+                    <td>{{user.is_active}}</td>
+                    <td>
+                        <a href="#">Update</a>
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</div>
+{% endblock main %}

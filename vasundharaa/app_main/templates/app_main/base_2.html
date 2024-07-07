@@ -1,0 +1,7 @@
+{% extends 'app_main/base.html' %}
+
+{% block navbar %}
+    {% if request.user.is_authenticated %}
+      {% include 'app_main/navbar.html' %}
+    {% endif %}
+{% endblock %}

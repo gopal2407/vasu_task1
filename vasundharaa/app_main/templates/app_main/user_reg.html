@@ -1,0 +1,22 @@
+{% extends 'app_main/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block main %}
+<div class="row mt-5">
+    <div class="col-sm-4 col-md-3">
+        <h3 class="text-center mb-4"><u>User Registration</u></h3>
+        {% if error %}
+        <p style="margin-top:10px;margin-bottom:10px;background:red;color:white;padding:10px;">{{error}}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save</button>
+                <a href="{% url 'login' %}" style="margin-top:10px;display:block;">Login Now</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock main %}
