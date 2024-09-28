@@ -21,3 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_main.urls')),
 ]
+
+# Abra ka dabara
